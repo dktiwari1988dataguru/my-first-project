@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>World Clock & Currency Converter</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header>
+    <h1>🌍 World Clock & Currency Converter</h1>
+    <p>Enter any country — see its time & convert currency</p>
+  </header>
+
+  <!-- ══════════ WORLD CLOCK ══════════ -->
+  <section class="card" id="clock-section">
+    <h2>🕐 World Clock</h2>
+
+    <div class="input-row">
+      <input type="text" id="countryInput" placeholder="Country name likhо (e.g. Japan, USA, India...)" />
+      <button onclick="addClock()">Add Clock</button>
+    </div>
+
+    <!-- Quick buttons -->
+    <div class="quick-btns">
+      <button class="quick" onclick="quickAdd('India','Asia/Kolkata','🇮🇳')">🇮🇳 India</button>
+      <button class="quick" onclick="quickAdd('USA','America/New_York','🇺🇸')">🇺🇸 USA</button>
+      <button class="quick" onclick="quickAdd('UK','Europe/London','🇬🇧')">🇬🇧 UK</button>
+      <button class="quick" onclick="quickAdd('Japan','Asia/Tokyo','🇯🇵')">🇯🇵 Japan</button>
+      <button class="quick" onclick="quickAdd('Dubai','Asia/Dubai','🇦🇪')">🇦🇪 Dubai</button>
+      <button class="quick" onclick="quickAdd('Australia','Australia/Sydney','🇦🇺')">🇦🇺 Australia</button>
+      <button class="quick" onclick="quickAdd('Germany','Europe/Berlin','🇩🇪')">🇩🇪 Germany</button>
+      <button class="quick" onclick="quickAdd('Canada','America/Toronto','🇨🇦')">🇨🇦 Canada</button>
+    </div>
+
+    <div id="clocks-container"></div>
+  </section>
+
+  <!-- ══════════ CURRENCY CONVERTER ══════════ -->
+  <section class="card" id="currency-section">
+    <h2>💱 Currency Converter</h2>
+
+    <div class="converter-grid">
+      <div class="input-group">
+        <label>Amount</label>
+        <input type="number" id="amount" value="1" min="0" oninput="convert()"/>
+      </div>
+      <div class="input-group">
+        <label>From</label>
+        <select id="fromCurr" onchange="convert()">
+          <option value="INR">🇮🇳 INR - Indian Rupee</option>
+          <option value="USD" selected>🇺🇸 USD - US Dollar</option>
+          <option value="EUR">🇪🇺 EUR - Euro</option>
+          <option value="GBP">🇬🇧 GBP - British Pound</option>
+          <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+          <option value="AED">🇦🇪 AED - UAE Dirham</option>
+          <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+          <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+          <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+          <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+          <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+          <option value="SAR">🇸🇦 SAR - Saudi Riyal</option>
+        </select>
+      </div>
+      <div class="swap-btn" onclick="swapCurrency()">⇄</div>
+      <div class="input-group">
+        <label>To</label>
+        <select id="toCurr" onchange="convert()">
+          <option value="INR" selected>🇮🇳 INR - Indian Rupee</option>
+          <option value="USD">🇺🇸 USD - US Dollar</option>
+          <option value="EUR">🇪🇺 EUR - Euro</option>
+          <option value="GBP">🇬🇧 GBP - British Pound</option>
+          <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+          <option value="AED">🇦🇪 AED - UAE Dirham</option>
+          <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+          <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+          <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+          <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+          <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+          <option value="SAR">🇸🇦 SAR - Saudi Riyal</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="result-box">
+      <div id="result-text">Converting...</div>
+      <div id="rate-info"></div>
+    </div>
+
+    <!-- Quick conversions -->
+    <div class="quick-btns">
+      <button class="quick" onclick="quickConvert('USD','INR')">USD → INR</button>
+      <button class="quick" onclick="quickConvert('INR','USD')">INR → USD</button>
+      <button class="quick" onclick="quickConvert('EUR','INR')">EUR → INR</button>
+      <button class="quick" onclick="quickConvert('GBP','INR')">GBP → INR</button>
+      <button class="quick" onclick="quickConvert('AED','INR')">AED → INR</button>
+      <button class="quick" onclick="quickConvert('USD','EUR')">USD → EUR</button>
+    </div>
+  </section>
+
+  <footer>Made with ❤️ by Dhirendra Tiwari</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

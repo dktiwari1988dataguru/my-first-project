@@ -1,0 +1,194 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  color: #fff;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+header h1 { font-size: 2.2rem; margin-bottom: 8px; }
+header p { color: #aaa; font-size: 1rem; }
+
+/* CARDS */
+.card {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 900px;
+  margin: 30px auto;
+}
+.card h2 { font-size: 1.5rem; margin-bottom: 24px; }
+
+/* INPUT ROW */
+.input-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+input[type="text"], input[type="number"] {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s;
+}
+input:focus { border-color: #e94560; }
+input::placeholder { color: #888; }
+
+button {
+  padding: 12px 24px;
+  background: #e94560;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+button:hover { transform: translateY(-2px); opacity: 0.9; }
+
+/* QUICK BUTTONS */
+.quick-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+.quick {
+  padding: 7px 16px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.quick:hover { background: rgba(233,69,96,0.5); border-color: #e94560; }
+
+/* CLOCK CARDS */
+#clocks-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+.clock-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  padding: 20px 24px;
+  min-width: 180px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn { from { opacity:0; transform:scale(0.9); } to { opacity:1; transform:scale(1); } }
+
+.clock-card .flag { font-size: 2rem; }
+.clock-card .city { font-size: 0.85rem; color: #aaa; margin: 4px 0; }
+.clock-card .time {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
+}
+.clock-card .date { font-size: 0.78rem; color: #888; margin-top: 4px; }
+.clock-card .remove {
+  position: absolute;
+  top: 8px; right: 10px;
+  background: transparent;
+  border: none;
+  color: #e94560;
+  font-size: 1rem;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.clock-card .remove:hover { transform: scale(1.3); }
+
+/* CURRENCY CONVERTER */
+.converter-grid {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 140px;
+}
+.input-group label { font-size: 0.85rem; color: #aaa; }
+select {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+}
+select option { background: #302b63; color: #fff; }
+
+.swap-btn {
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  background: rgba(233,69,96,0.2);
+  border: 1px solid #e94560;
+  text-align: center;
+  transition: transform 0.3s;
+  margin-bottom: 2px;
+}
+.swap-btn:hover { transform: rotate(180deg); background: #e94560; }
+
+#result-box {
+  margin: 24px 0 16px;
+  background: rgba(233,69,96,0.15);
+  border: 1px solid rgba(233,69,96,0.4);
+  border-radius: 14px;
+  padding: 20px 24px;
+  text-align: center;
+}
+#result-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+#rate-info {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 6px;
+}
+
+.loading { color: #f59e0b; }
+.error { color: #ef4444; }
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 1.5rem; }
+  .converter-grid { flex-direction: column; }
+  .swap-btn { transform: rotate(90deg); width: 44px; margin: 0 auto; }
+}
